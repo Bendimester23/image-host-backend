@@ -1,4 +1,4 @@
-module github.com/Bendimester23/image-host
+module github.com/Bendimester23/image-host-backend
 
 go 1.17
 
