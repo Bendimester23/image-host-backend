@@ -1,0 +1,22 @@
+datasource db {
+    provider = "sqlite"
+    url      = "file:dev.db"
+}
+
+generator db {
+    provider = "go run github.com/prisma/prisma-client-go"
+}
+
+model Image {
+    id        String   @id
+    createdAt DateTime @default(now())
+    user      User @relation( fields: [userId], references: [id] )
+    userId String
+}
+
+model User {
+    id    String @id @default(cuid())
+    token String
+    name  String
+    images Image[]
+}
